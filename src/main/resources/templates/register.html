@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Form</h1>
+	<form action="#" th:action="@{/register}" th:object="${player}"
+		method="post">
+		<p>
+			Name: <input type="text" th:field="*{name}" />
+		</p>
+		Role:
+		<ul>
+			<li><input type="radio" id="opt1" value="1" th:field="*{role}">
+				<label for="opt1">Tank</label></li>
+			<li><input type="radio" id="opt2" value="2" th:field="*{role}">
+				<label for="opt2">Healer</label></li>
+			<li><input type="radio" id="opt3" value="3" th:field="*{role}">
+				<label for="opt3">DPS Melee</label></li>
+			<li><input type="radio" id="opt4" value="4" th:field="*{role}">
+				<label for="opt4">DPS Ranged</label></li>
+		</ul>
+		<p>
+			<input type="submit" value="Submit" /> <input type="reset"
+				value="Reset" />
+		</p>
+	</form>
+</body>
+</html>

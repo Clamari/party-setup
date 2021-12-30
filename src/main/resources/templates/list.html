@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<title>Getting Started: Handling Form Submission</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+	<a href="register">Add player</a>
+	<br>
+	<br>
+	<a href="reset" style="color: red; font-weight: bold;">RESET</a>
+	<br>
+	<br>
+	<div th:each="group : ${groups}"
+		style="float: left; margin-right: 20px;">
+		<h3 th:text="${group.name}"></h3>
+		<table border="2px">
+			<tr th:each="player : ${group.players}">
+				<td style="padding: 5px;">
+					<div th:switch="${player.role}">
+						<div th:case="'1'">
+							<img th:src="@{/images/shield.png}"
+								style="max-height: 20px; max-width: 20px;" />
+						</div>
+						<div th:case="'2'">
+							<img th:src="@{/images/heart.png}"
+								style="max-height: 20px; max-width: 20px;" />
+						</div>
+						<div th:case="'3'">
+							<img th:src="@{/images/swords.png}"
+								style="max-height: 20px; max-width: 20px;" />
+						</div>
+						<div th:case="'4'">
+							<img th:src="@{/images/bow.png}"
+								style="max-height: 20px; max-width: 20px;" />
+						</div>
+					</div>
+				</td>
+				<td th:text="${player.name}" style="padding: 5px;"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
